@@ -13,13 +13,13 @@ let loaf = {
 
 // console.log(loaf.hydration());
 
-const words = {
-  foo: 'hello',
-  bar: 'crunch',
-  fum: 'goodbye',
-  quux: 'giant',
-  spam: 'and eggs'
-};
+// const words = {
+//   foo: 'hello',
+//   bar: 'crunch',
+//   fum: 'goodbye',
+//   quux: 'giant',
+//   spam: 'and eggs'
+// };
 //for (let key in words) {
   //console.log(key, words[key]);
 //};
@@ -37,8 +37,33 @@ const staff = [
   {name: 'James', jobTitle: 'Secret Agent', boss:'Mr. Burns'}
 ];
 
-for (let i=0; i<staff.length; i++) {
-  let employee = staff[i];{
-    console.log(employee.boss === undefined ? `${employee.jobTitle} ${employee.name} doesn't report to anybody.` : `${employee.jobTitle} ${employee.name} reports to ${employee.boss}`);
+// for (let i=0; i<staff.length; i++) {
+//   let employee = staff[i];{
+//     console.log(employee.boss === undefined ? `${employee.jobTitle} ${employee.name} doesn't report to anybody.` : `${employee.jobTitle} ${employee.name} reports to ${employee.boss}`);
+//   }
+// }
+const cipher = {
+  a:2,
+  b:3,
+  c:4,
+  d:5
+};
+
+function decode(word) {
+  if (cipher[word[0]]) {
+    return word[cipher[word[0]]-1];
   }
+  else return ' ';
 }
+
+
+const str = 'craft block argon meter bells brown croon droop';
+
+function decodeWords(decode, str) {
+  let strSplit = str.split(' ');
+  // return strSplit.forEach(decode);
+  return strSplit.map(decode).join('');
+  //ask about commas without parameter for join
+}
+
+console.log(decodeWords(decode,str));

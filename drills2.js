@@ -12,3 +12,7 @@ function enrollInSummerSchool(students) {
   students.forEach(student => student.status = 'In Summer School');
   return students;
 }
+
+function findById(items, idNum) {
+  return items.find(item => item.id === idNum);
+}

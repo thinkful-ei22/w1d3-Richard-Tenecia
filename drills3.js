@@ -69,7 +69,7 @@ function decodeWords(decode, str) {
 //console.log(decodeWords(decode,str));
 
 
-const createCharacter = function (name, nickName, origin, race, attack, defense){
+const createCharacter = function (name, nickName, race, origin, attack, defense, weapon){
 
   return {name, 
     nickName, 
@@ -77,23 +77,42 @@ const createCharacter = function (name, nickName, origin, race, attack, defense)
     race, 
     attack, 
     defense,
+    weapon,
     describe: function(){
-      console.log(`${name} is a ${race} from ${origin}`);
+      console.log(`${name} is a ${race} from ${origin} who uses ${weapon}`);
     },
     evaluateFight: function(character){
-      if (this.attack < character.defense && character.attack < this.defense){
-        return 'Your opponent takes 0 damage and you receive 0 damage';
-      }
-      if  (this.attack < character.defense){
-        return `Your opponent takes 0 damage and you receive ${character.attack - this.defense} damage`;
-      }
-      if (character.attack < this.defense ){
-        return `Your opponent takes ${this.attack - character.defense} damage and you receive 0 damage`;
-      }
-      else{
-        return `Your opponent takes ${this.attack - character.defense} damage and you receive ${character.attack - this.defense} damage`;
-      }
+      // if (this.attack < character.defense && character.attack < this.defense){
+      //   return 'Your opponent takes 0 damage and you receive 0 damage';
+      // }
+      // if  (this.attack < character.defense){
+      //   return `Your opponent takes 0 damage and you receive ${character.attack - this.defense} damage`;
+      // }
+      // if (character.attack < this.defense ){
+      //   return `Your opponent takes ${this.attack - character.defense} damage and you receive 0 damage`;
+      // }
+      // else{
+      return `Your opponent takes ${this.attack > character.defense ? this.attack - character.defense : 0} damage and you receive ${character.attack > this.defense ? character.attack - this.defense:0} damage`;
+      // }
     }
   };
 
 };
+
+const character = [
+  createCharacter('Gandalf the White', 'gandalf','Wizard','Middle Earth', 10, 6, 'wizard staff'),
+  createCharacter('Biblo Baggins', 'bilbo', 'Hobbit', 'The Shire', 2 ,1, 'the Ring'),
+  createCharacter('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', 3,2, 'String and Barrow Blade'),
+  createCharacter('Aragorn, son of Arathorn','aragorn','Man','Dunnedain',6,8, 'Anduril'),
+  createCharacter('Legolas','legolas','Elf','Woodland Realm',8,5, 'Bow and Arrow')
+];
+
+character.push(createCharacter('Arwen Undomiel', 'arwen', 'Half-Elf', 'Rivendell', 4,7, 'Hadhafang'));
+
+// character.find(char => char.nickName === 'aragorn').describe();
+
+// character.filter(char => char.race === 'Hobbit').map(obj => obj.describe());
+character.filter(char => char.attack > 5).map(obj => obj.describe());
+
+
+

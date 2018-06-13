@@ -17,6 +17,7 @@ function updateObject(obj) {
   obj.bar = 'bar';
   obj.bizz = 'bizz';
   obj.bang = 'bang';
+  return obj;
 }
 
 function personMaker() {
@@ -28,4 +29,10 @@ function personMaker() {
     },
   };
   return person;
+}
+
+function keyDeleter(obj) {
+  delete obj.foo;
+  delete obj.bar;
+  return obj;
 }

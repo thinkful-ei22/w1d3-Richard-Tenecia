@@ -28,4 +28,15 @@ let buffet = {
   meals: ['breakfast', 'second breakfast',
     'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper'],
 };
-console.log(`The hobit's fourth meal of the day is ${buffet.meals[3]}!`);
+// console.log(`The hobit's fourth meal of the day is ${buffet.meals[3]}!`);
+
+const staff = [
+  {name: 'Peter', jobTitle: 'Kidnapper'},
+  {name: 'Homer', jobTitle: 'Nuclear Plant Worker'},
+  {name: 'James', jobTitle: 'Secret Agent'}
+];
+
+for (let i=0; i<staff.length; i++) {
+  let employee = staff[i];
+  console.log(`${employee.name} : ${employee.jobTitle}`);
+}

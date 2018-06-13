@@ -66,4 +66,34 @@ function decodeWords(decode, str) {
   //ask about commas without parameter for join
 }
 
-console.log(decodeWords(decode,str));
+//console.log(decodeWords(decode,str));
+
+
+const createCharacter = function (name, nickName, origin, race, attack, defense){
+
+  return {name, 
+    nickName, 
+    origin, 
+    race, 
+    attack, 
+    defense,
+    describe: function(){
+      console.log(`${name} is a ${race} from ${origin}`);
+    },
+    evaluateFight: function(character){
+      if (this.attack < character.defense && character.attack < this.defense){
+        return 'Your opponent takes 0 damage and you receive 0 damage';
+      }
+      if  (this.attack < character.defense){
+        return `Your opponent takes 0 damage and you receive ${character.attack - this.defense} damage`;
+      }
+      if (character.attack < this.defense ){
+        return `Your opponent takes ${this.attack - character.defense} damage and you receive 0 damage`;
+      }
+      else{
+        return `Your opponent takes ${this.attack - character.defense} damage and you receive ${character.attack - this.defense} damage`;
+      }
+    }
+  };
+
+};

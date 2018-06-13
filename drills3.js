@@ -31,12 +31,14 @@ let buffet = {
 // console.log(`The hobit's fourth meal of the day is ${buffet.meals[3]}!`);
 
 const staff = [
-  {name: 'Peter', jobTitle: 'Kidnapper'},
-  {name: 'Homer', jobTitle: 'Nuclear Plant Worker'},
-  {name: 'James', jobTitle: 'Secret Agent'}
+  {name: 'Mr. Burns', jobTitle: 'Boss'},
+  {name: 'Peter', jobTitle: 'Kidnapper', boss:'Mr. Burns'},
+  {name: 'Homer', jobTitle: 'Nuclear Plant Worker', boss:'Mr. Burns'},
+  {name: 'James', jobTitle: 'Secret Agent', boss:'Mr. Burns'}
 ];
 
 for (let i=0; i<staff.length; i++) {
-  let employee = staff[i];
-  console.log(`${employee.name} : ${employee.jobTitle}`);
+  let employee = staff[i];{
+    console.log(employee.boss === undefined ? `${employee.jobTitle} ${employee.name} doesn't report to anybody.` : `${employee.jobTitle} ${employee.name} reports to ${employee.boss}`);
+  }
 }

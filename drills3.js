@@ -11,4 +11,15 @@ let loaf = {
 //console.log(loaf.flour);
 //console.log(loaf.water);
 
-console.log(loaf.hydration());
+// console.log(loaf.hydration());
+
+const words = {
+  foo: 'hello',
+  bar: 'crunch',
+  fum: 'goodbye',
+  quux: 'giant',
+  spam: 'and eggs'
+};
+for (let key in words) {
+  console.log(key, words[key]);
+}

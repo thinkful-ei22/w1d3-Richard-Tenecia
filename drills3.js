@@ -20,6 +20,12 @@ const words = {
   quux: 'giant',
   spam: 'and eggs'
 };
-for (let key in words) {
-  console.log(key, words[key]);
-}
+//for (let key in words) {
+  //console.log(key, words[key]);
+//};
+
+let buffet = {
+  meals: ['breakfast', 'second breakfast',
+    'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper'],
+};
+console.log(`The hobit's fourth meal of the day is ${buffet.meals[3]}!`);
